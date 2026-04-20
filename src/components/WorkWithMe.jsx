@@ -1,5 +1,5 @@
 
-const GOOGLE_FORM_URL = 'https://https://docs.google.com/forms/d/1NzHDYgQUqjmgMb67PhOG_JOLTbi-l77iqxiLaLpOTvI/edit'
+const GOOGLE_FORM_URL = 'https://forms.gle/g1Jpf2LWc8J2SxFB8'
 
 const plans = [
   {
