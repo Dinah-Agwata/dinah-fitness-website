@@ -350,11 +350,115 @@ body {
   padding-bottom: 2px;
 }
 
-/* ── Footer ── */
+
 .db-footer {
   text-align: center;
   padding: 20px;
   font-size: 11px;
   color: #D4E4CF;
   background: var(--sage-dark);
+}
+/* ── Prices & Book button ── */
+.db-plan-right {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-left: 12px;
+}
+
+.db-plan-price {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--sage-dark);
+}
+
+.db-book-btn {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--sage-dark);
+  border: 1px solid var(--sage-dark);
+  border-radius: 20px;
+  padding: 5px 14px;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+
+.db-book-btn:hover {
+  background: var(--sage-dark);
+  color: var(--sage-bg);
+}
+
+.db-featured-badge.best-value {
+  background: #C4A24A;
+}
+.db-featured-badge.most-popular {
+  background: #4A6741;
+}
+/* ── Thank You Page ── */
+.db-thankyou-hero {
+  background: var(--sage-dark);
+  padding: 60px 24px 48px;
+  text-align: center;
+}
+
+.db-thankyou-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  border: 2px solid rgba(255,255,255,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: #D4E4CF;
+  margin: 0 auto 20px;
+}
+
+.db-thankyou-sub {
+  font-size: 15px;
+  color: #D4E4CF;
+  line-height: 1.7;
+  max-width: 360px;
+  margin: 12px auto 0;
+}
+
+.db-thankyou-cta {
+  margin-top: 32px;
+  padding: 24px;
+  background: var(--sage-pale);
+  border-radius: 14px;
+  text-align: center;
+}
+
+.db-thankyou-cta-text {
+  font-size: 14px;
+  color: var(--text-mid);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.db-thankyou-cta .db-cta-btn {
+  display: inline-block;
+  width: auto;
+  padding: 12px 32px;
+  text-decoration: none;
+}
+
+.db-thankyou-back {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.db-back-link {
+  font-size: 13px;
+  color: var(--text-muted);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 2px;
+}
+
+.db-back-link:hover {
+  color: var(--sage-dark);
 }
