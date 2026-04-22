@@ -1,16 +1,17 @@
-const BOOKING_URL = 'https://calendly.com/YOUR_LINK'
+import { useState } from 'react'
+import PlanModal from './PlanModal'
 
 const plans = [
   {
     name: '1-Week Kickstart Plan',
-    desc: 'Perfect for getting started',
+    desc: 'Reset and restart your nutrition',
     price: '$15',
     dot: '',
     featured: false,
   },
   {
     name: '1-Month Transformation',
-    desc: 'Build lasting habits',
+    desc: 'Build lasting habits and see real changes',
     price: '$50',
     dot: '',
     featured: true,
@@ -29,7 +30,6 @@ const plans = [
     desc: 'Tailored sessions, real accountability',
     price: null,
     cta: 'Book a call',
-    ctaUrl: BOOKING_URL,
     dot: 'accent',
     featured: false,
     badge: 'Personal',
@@ -37,6 +37,8 @@ const plans = [
 ]
 
 function ThankYou() {
+  const [selectedPlan, setSelectedPlan] = useState(null)
+
   return (
     <div className="db-page">
       <div className="db-thankyou-hero">
@@ -52,28 +54,29 @@ function ThankYou() {
       <div className="db-content">
         <p className="db-work-title">Choose your plan</p>
         <p className="db-work-sub">
-          All plans are digital and mobile-friendly — take your
-          shopping list straight to the grocery store.
+          Click on any plan to see what's included.
         </p>
 
         <div className="db-plans">
-          {plans.map((plan) => (
+          {plans.map((plan, index) => (
             <div
               key={plan.name}
-              className={`db-plan-card${plan.featured ? ' featured' : ''}`}
+              className={plan.featured ? 'db-plan-card featured' : 'db-plan-card'}
+              onClick={() => setSelectedPlan(index)}
             >
               <div className="db-plan-left">
-                <div className={`db-plan-dot${plan.dot ? ` ${plan.dot}` : ''}`}></div>
+                <div className={plan.dot ? 'db-plan-dot ' + plan.dot : 'db-plan-dot'}></div>
                 <div>
                   <div className="db-plan-name">
                     {plan.name}
-                    {plan.badge && (
-                      <span className={`db-featured-badge${
-                        plan.badge === 'Best value' ? ' best-value' :
-                        plan.badge === 'Most popular' ? ' most-popular' : ''
-                      }`}>
-                        {plan.badge}
-                      </span>
+                    {plan.badge === 'Most popular' && (
+                      <span className="db-featured-badge most-popular">Most popular</span>
+                    )}
+                    {plan.badge === 'Best value' && (
+                      <span className="db-featured-badge best-value">Best value</span>
+                    )}
+                    {plan.badge === 'Personal' && (
+                      <span className="db-featured-badge">Personal</span>
                     )}
                   </div>
                   <div className="db-plan-desc">{plan.desc}</div>
@@ -81,14 +84,7 @@ function ThankYou() {
               </div>
               <div className="db-plan-right">
                 {plan.cta ? (
-                  <a
-                    href={plan.ctaUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="db-book-btn"
-                  >
-                    {plan.cta}
-                  </a>
+                  <span className="db-book-btn">{plan.cta}</span>
                 ) : (
                   <span className="db-plan-price">{plan.price}</span>
                 )}
@@ -104,6 +100,7 @@ function ThankYou() {
           <a
             className="db-cta-btn"
             href="mailto:dinahbagwata@gmail.com"
+            style={{ display: 'block', textAlign: 'center', textDecoration: 'none' }}
           >
             Contact me →
           </a>
@@ -117,6 +114,13 @@ function ThankYou() {
       <div className="db-footer">
         © {new Date().getFullYear()} Dinah Buyeke · All rights reserved
       </div>
+
+      {selectedPlan !== null && (
+        <PlanModal
+          planIndex={selectedPlan}
+          onClose={() => setSelectedPlan(null)}
+        />
+      )}
     </div>
   )
 }
