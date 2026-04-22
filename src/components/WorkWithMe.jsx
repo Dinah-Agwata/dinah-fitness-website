@@ -45,7 +45,7 @@ function WorkWithMe() {
     <>
       <p className="db-work-title">Work with me</p>
       <p className="db-work-sub">
-        Choose a plan that fits your goals. Not sure where to start? Take the assessment first.
+        Choose a plan that fits your goals.
       </p>
 
       <div className="db-plans">
