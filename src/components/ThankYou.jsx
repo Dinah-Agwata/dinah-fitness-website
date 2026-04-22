@@ -2,7 +2,7 @@ const BOOKING_URL = 'https://calendly.com/YOUR_LINK'
 
 const plans = [
   {
-    name: '1-Week Kickstart/ reset Plan',
+    name: '1-Week Kickstart Plan',
     desc: 'Perfect for getting started',
     price: '$15',
     dot: '',

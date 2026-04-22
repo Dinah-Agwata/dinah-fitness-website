@@ -1,20 +1,19 @@
-// Replace this with your actual Google Form link
-const GOOGLE_FORM_URL = 'https://forms.gle/HK9Vr1g1DKVW1Euw9'
+import { useState } from 'react'
+import PlanModal from './PlanModal'
 
-// Replace with your booking link e.g. Calendly
-const BOOKING_URL = 'https://calendly.com/dinahbagwata/30min'
+const GOOGLE_FORM_URL = 'https://forms.gle/NTLsAqYLhVDFYo6d8'
 
 const plans = [
   {
     name: '1-Week Kickstart Plan',
-    desc: 'Perfect for getting started',
+    desc: 'Reset and restart your nutrition',
     price: '$15',
     dot: '',
     featured: false,
   },
-{
+  {
     name: '1-Month Transformation',
-    desc: 'Build lasting habits',
+    desc: 'Build lasting habits and see real changes',
     price: '$50',
     dot: '',
     featured: true,
@@ -33,14 +32,15 @@ const plans = [
     desc: 'Tailored sessions, real accountability',
     price: null,
     cta: 'Book a call',
-    ctaUrl: BOOKING_URL,
     dot: 'accent',
-    featured: true,
+    featured: false,
     badge: 'Personal',
   },
 ]
 
 function WorkWithMe() {
+  const [selectedPlan, setSelectedPlan] = useState(null)
+
   return (
     <>
       <p className="db-work-title">Work with me</p>
@@ -58,8 +58,12 @@ function WorkWithMe() {
           <div className="db-plan-left">
             <div className="db-plan-dot soft"></div>
             <div>
-              <div className="db-plan-name">Not sure where to start? Take the assessment</div>
-              <div className="db-plan-desc">Answer a few questions and I'll guide you to the right plan</div>
+              <div className="db-plan-name">
+                Not sure where to start? Take the assessment
+              </div>
+              <div className="db-plan-desc">
+                Answer a few questions and I'll guide you to the right plan
+              </div>
             </div>
           </div>
           <span className="db-plan-arrow">→</span>
@@ -71,20 +75,25 @@ function WorkWithMe() {
           <div className="db-divider-line"></div>
         </div>
 
-        {plans.map((plan) => (
+        {plans.map((plan, index) => (
           <div
             key={plan.name}
-            className={`db-plan-card${plan.featured ? ' featured' : ''}`}
+            className={plan.featured ? 'db-plan-card featured' : 'db-plan-card'}
+            onClick={() => setSelectedPlan(index)}
           >
             <div className="db-plan-left">
-              <div className={`db-plan-dot${plan.dot ? ` ${plan.dot}` : ''}`}></div>
+              <div className={plan.dot ? 'db-plan-dot ' + plan.dot : 'db-plan-dot'}></div>
               <div>
                 <div className="db-plan-name">
                   {plan.name}
-                  {plan.badge && (
-                    <span className={`db-featured-badge${plan.badge === 'Best value' ? ' best-value' : plan.badge === 'Most popular' ? ' most-popular' : ''}`}>
-                      {plan.badge}
-                    </span>
+                  {plan.badge === 'Most popular' && (
+                    <span className="db-featured-badge most-popular">Most popular</span>
+                  )}
+                  {plan.badge === 'Best value' && (
+                    <span className="db-featured-badge best-value">Best value</span>
+                  )}
+                  {plan.badge === 'Personal' && (
+                    <span className="db-featured-badge">Personal</span>
                   )}
                 </div>
                 <div className="db-plan-desc">{plan.desc}</div>
@@ -92,15 +101,7 @@ function WorkWithMe() {
             </div>
             <div className="db-plan-right">
               {plan.cta ? (
-                <a
-                  href={plan.ctaUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="db-book-btn"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  {plan.cta}
-                </a>
+                <span className="db-book-btn">{plan.cta}</span>
               ) : (
                 <span className="db-plan-price">{plan.price}</span>
               )}
@@ -117,6 +118,13 @@ function WorkWithMe() {
           dinahbagwata@gmail.com
         </a>
       </div>
+
+      {selectedPlan !== null && (
+        <PlanModal
+          planIndex={selectedPlan}
+          onClose={() => setSelectedPlan(null)}
+        />
+      )}
     </>
   )
 }

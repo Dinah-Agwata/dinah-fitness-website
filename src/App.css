@@ -462,3 +462,484 @@ body {
 .db-back-link:hover {
   color: var(--sage-dark);
 }
+
+/* ── Meal Plan Page ── */
+.mp-page {
+  min-height: 100vh;
+  background: #F8FAF7;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.mp-header {
+  background: #4A6741;
+  padding: 40px 20px 32px;
+  position: relative;
+}
+
+.mp-back {
+  font-size: 13px;
+  color: #D4E4CF;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.mp-back:hover { color: #fff; }
+
+.mp-label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #B5C9AE;
+  margin-bottom: 6px;
+}
+
+.mp-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: #F8FAF7;
+  margin-bottom: 6px;
+}
+
+.mp-subtitle {
+  font-size: 14px;
+  color: #D4E4CF;
+}
+
+.mp-tabs {
+  display: flex;
+  background: #fff;
+  border-bottom: 1px solid #C8DCC3;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.mp-tab {
+  flex: 1;
+  padding: 14px;
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  color: #7A9E72;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  font-family: 'DM Sans', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: color 0.2s;
+}
+
+.mp-tab.active {
+  color: #4A6741;
+  border-bottom: 2px solid #4A6741;
+}
+
+.mp-tick-count {
+  font-size: 11px;
+  background: #4A6741;
+  color: #F8FAF7;
+  padding: 2px 7px;
+  border-radius: 10px;
+}
+
+.mp-content {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 24px 20px 48px;
+}
+
+/* Day selector */
+.mp-days {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.mp-day-btn {
+  flex-shrink: 0;
+  padding: 8px 14px;
+  border-radius: 20px;
+  border: 1px solid #C8DCC3;
+  background: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  color: #7A9E72;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.2s;
+}
+
+.mp-day-btn.active {
+  background: #4A6741;
+  color: #F8FAF7;
+  border-color: #4A6741;
+}
+
+.mp-day-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 20px;
+  color: #1F2B1E;
+  margin-bottom: 16px;
+}
+
+.mp-meals {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.mp-meal-card {
+  border-radius: 12px;
+  border: 1px solid;
+  padding: 16px;
+}
+
+.mp-meal-type {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.mp-meal-items {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mp-meal-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #1F2B1E;
+}
+
+.mp-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Nav */
+.mp-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.mp-nav-btn {
+  flex: 1;
+  padding: 12px;
+  border-radius: 24px;
+  border: 1px solid #C8DCC3;
+  background: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  color: #4A6741;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.2s;
+}
+
+.mp-nav-btn:hover:not(:disabled) {
+  background: #4A6741;
+  color: #F8FAF7;
+  border-color: #4A6741;
+}
+
+.mp-nav-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Shopping list */
+.mp-shopping-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.mp-shopping-note {
+  font-size: 14px;
+  color: #3D5438;
+}
+
+.mp-clear-btn {
+  font-size: 12px;
+  color: #7A9E72;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  text-decoration: underline;
+}
+
+.mp-progress-bar {
+  height: 6px;
+  background: #E4F0E0;
+  border-radius: 10px;
+  margin-bottom: 6px;
+  overflow: hidden;
+}
+
+.mp-progress-fill {
+  height: 100%;
+  background: #4A6741;
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
+
+.mp-progress-text {
+  font-size: 12px;
+  color: #7A9E72;
+  margin-bottom: 24px;
+}
+
+.mp-shop-category {
+  margin-bottom: 24px;
+}
+
+.mp-shop-cat-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #7A9E72;
+  margin-bottom: 10px;
+}
+
+.mp-shop-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.mp-shop-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: #fff;
+  border: 1px solid #C8DCC3;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.mp-shop-item.checked {
+  background: #F2F7F1;
+  border-color: #4A6741;
+}
+
+.mp-checkbox {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  border: 1.5px solid #C8DCC3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+
+.mp-checkbox.checked {
+  background: #4A6741;
+  border-color: #4A6741;
+}
+
+.mp-checkmark {
+  font-size: 13px;
+  color: #fff;
+}
+
+.mp-shop-item-name {
+  font-size: 14px;
+  color: #1F2B1E;
+  transition: all 0.2s;
+}
+
+.mp-shop-item.checked .mp-shop-item-name {
+  color: #7A9E72;
+  text-decoration: line-through;
+}
+
+/* Footer */
+.mp-footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 11px;
+  color: #D4E4CF;
+  background: #4A6741;
+}
+/* ── Plan Modal ── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 100;
+}
+
+.modal-panel {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-radius: 20px 20px 0 0;
+  padding: 24px 24px 40px;
+  z-index: 101;
+  max-width: 520px;
+  margin: 0 auto;
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+.modal-handle {
+  width: 40px;
+  height: 4px;
+  background: #C8DCC3;
+  border-radius: 4px;
+  margin: 0 auto 20px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #F8FAF7;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 13px;
+  color: #7A9E72;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-close:hover { background: #E4F0E0; }
+
+.modal-name-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+
+.modal-name {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #1F2B1E;
+}
+
+.modal-badge {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: #4A6741;
+  color: #F8FAF7;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+.modal-badge.best-value { background: #C4A24A; }
+.modal-badge.most-popular { background: #4A6741; }
+
+.modal-price {
+  font-size: 24px;
+  font-weight: 500;
+  color: #4A6741;
+  margin-bottom: 8px;
+}
+
+.modal-tagline {
+  font-size: 14px;
+  color: #3D5438;
+  line-height: 1.6;
+}
+
+.modal-divider {
+  height: 1px;
+  background: #C8DCC3;
+  margin: 20px 0;
+}
+
+.modal-includes-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #7A9E72;
+  margin-bottom: 14px;
+}
+
+.modal-includes {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.modal-include-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: #1F2B1E;
+  line-height: 1.5;
+}
+
+.modal-check {
+  color: #4A6741;
+  font-weight: 500;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.modal-cta-btn {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  background: #4A6741;
+  color: #F8FAF7;
+  border: none;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  text-align: center;
+  text-decoration: none;
+  font-family: 'DM Sans', sans-serif;
+  transition: background 0.2s;
+  margin-bottom: 12px;
+}
+
+.modal-cta-btn:hover { background: #3D5438; }
+
+.modal-note {
+  font-size: 12px;
+  color: #7A9E72;
+  text-align: center;
+  line-height: 1.5;
+}
